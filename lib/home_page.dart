@@ -27,35 +27,41 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return Center(
+    return Scaffold(
+      body: Center(
 
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                  child: TextButton(
-                      onPressed: rightLudo,
-                      child: Image.asset('assets/dice$leftDiceNumber.jpg'))),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                    child: TextButton(
+                        onPressed: rightLudo,
+                        child: Image.asset('assets/dice$leftDiceNumber.jpg'))),
 
-              Expanded(
-                  child: TextButton(
-                      onPressed: leftLudo,
-                      child: Image.asset('assets/dice$rightDiceNumber.jpg')
-                  )),
+                Expanded(
+                    child: TextButton(
+                        onPressed: leftLudo,
+                        child: Image.asset('assets/dice$rightDiceNumber.jpg')
+                    )),
 
 
-            ],
+              ],
 
-          ),
+            ),
 
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-          primary: Colors.green.withOpacity(0.6)
-          ),
-              onPressed: (){},
-              child: Text("Submit Submit"))
-        ],
+            Expanded(
+                child: Container(
+              child: Row(
+                children: [
+                  Text("Juwel Sheikh")
+                ],
+              ),
+            ))
+          ],
+        ),
       ),
     );
   }
