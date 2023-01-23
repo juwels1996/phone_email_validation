@@ -29,20 +29,33 @@ class _HomePageState extends State<HomePage> {
 
     return Center(
 
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-              child: TextButton(
-                  onPressed: rightLudo,
-                  child: Image.asset('assets/dice$leftDiceNumber.jpg'))),
+          Row(
+            children: [
+              Expanded(
+                  child: TextButton(
+                      onPressed: rightLudo,
+                      child: Image.asset('assets/dice$leftDiceNumber.jpg'))),
 
-          Expanded(
-              child: TextButton(
-                  onPressed: leftLudo,
-                  child: Image.asset('assets/dice$rightDiceNumber.jpg')
-              ))
+              Expanded(
+                  child: TextButton(
+                      onPressed: leftLudo,
+                      child: Image.asset('assets/dice$rightDiceNumber.jpg')
+                  )),
+
+
+            ],
+
+          ),
+
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+          primary: Colors.green.withOpacity(0.6)
+          ),
+              onPressed: (){},
+              child: Text("Submit Submit"))
         ],
-
       ),
     );
   }
