@@ -7,8 +7,19 @@ class FinalPage extends StatefulWidget {
 }
 
 class _FinalPageState extends State<FinalPage> {
+  int index=0;
+  
+  void count(){
+    setState(() {
+      index++;
+    });
+   
+    
+    
+  }
   @override
   Widget build(BuildContext context) {
+    TextEditingController textEditingController=TextEditingController();
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
@@ -48,10 +59,17 @@ class _FinalPageState extends State<FinalPage> {
                 ),
 
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    Container(
+                      child: Text('${index}',
+                        style: TextStyle(color: Colors.white),),
+                    ),
+                    
 
-                    ElevatedButton(onPressed: (){},
+                    ElevatedButton(onPressed: (){
+                      count();
+                    },
                         child: Icon(Icons.account_balance,
                         color: Colors.white,
                           size: 22,
