@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FinalPage extends StatefulWidget {
@@ -12,9 +13,9 @@ class _FinalPageState extends State<FinalPage> {
   double index2 = 1;
   double index3=50;
   double div=0;
-  double mul=1;
-  double mul1=0;
-  double index5=0;
+  int mul=1;
+  int mul1=0;
+  int index5=0;
   TextEditingController textEditingController = TextEditingController();
 
   void count() {
@@ -33,6 +34,7 @@ class _FinalPageState extends State<FinalPage> {
 
   divider(){
     setState(() {
+
      div=index3/=2;
     });
   }
@@ -61,36 +63,57 @@ class _FinalPageState extends State<FinalPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: TextButton(
                           style: TextButton.styleFrom(
+
                               primary: Colors.white,
                               backgroundColor: Colors.black),
                           autofocus: true,
                           onPressed: () {},
-                          child: Text("তাসকিনের গণিত বই")),
+                          child: Text("তাসকিনের গণিত বই",
+                          style: TextStyle(
+                            fontSize: 16
+                          ),
+                          )),
                     ),
+
+                    Container(
+                      margin: EdgeInsets.only(top: 15),
+                      height: 120,
+                      width: 100,
+                      child: CircleAvatar(
+                          backgroundColor: Colors.amber,
+                          backgroundImage: AssetImage('assets/taskin.jpg'),
+                          radius: 200.0
+                      ),
+                    )
                   ],
                 ),
+                SizedBox(height: 12,),
+                Divider(color: Colors.white,height: 10,),
                 Container(
                   child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Container(
-                            height:40,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(12),
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.only(left: 20,right: 20),
+                              height:40,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(Radius.circular(12),
 
+                                  ),
+                                  color: Colors.blue
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(6.0),
+                                child: Text(
+                                  "সংখ্যা হল জোড়=${index}",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                color: Colors.blue
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 14,right: 14,top: 8,bottom: 8),
-                              child: Text(
-                                "সংখ্যা হল জোড়=${index}",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
@@ -108,22 +131,25 @@ class _FinalPageState extends State<FinalPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Container(
-                            height:40,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(12),
+                          Expanded(
+                            child: Container(
+                              margin: EdgeInsets.only(left: 20,right: 20),
+                              height:40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(12),
 
+                                ),
+                                color: Colors.white.withOpacity(0.8)
                               ),
-                              color: Colors.white.withOpacity(0.8)
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "সংখ্যা হল বিজোড়=${index2}",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
+                              child: Padding(
+                                padding: const EdgeInsets.all(6.0),
+                                child: Text(
+                                  "সংখ্যা হল বিজোড়=${index2}",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ),
                           ),
@@ -132,7 +158,7 @@ class _FinalPageState extends State<FinalPage> {
                                 subCount();
                               },
                               child: Icon(
-                                Icons.description,
+                                Icons.cancel,
                                 color: Colors.white,
                                 size: 22,
                               ))
@@ -143,32 +169,35 @@ class _FinalPageState extends State<FinalPage> {
                         children: [
                           Container(
                             height:40,
+                            margin: EdgeInsets.only(left: 20,right: 20),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.all(Radius.circular(12),
 
                                 ),
-                                color: Colors.white
+                                color: Colors.green.withOpacity(0.4)
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(6.0),
                               child: Text(
-                                "ভাগফল হলো= ${index3}/2 = ${div}",
+                                "ভাগফল হলো= ${index3.toStringAsFixed(2)}/2 = ${div.toStringAsFixed(2)}",
                                 style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
                           ),
-                          ElevatedButton(
-                              onPressed: () {
-                                divider();
-                              },
-                              child: Icon(
-                                Icons.description,
-                                color: Colors.white,
-                                size: 22,
-                              ))
+                          Expanded(
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  divider();
+                                },
+                                child: Icon(
+                                  Icons.offline_bolt,
+                                  color: Colors.white,
+                                  size: 12,
+                                )),
+                          )
                         ],
                       ),
                       Row(
@@ -176,7 +205,7 @@ class _FinalPageState extends State<FinalPage> {
                         children: [
                           Expanded(
                             child: Container(
-                              margin: EdgeInsets.only(left: 30,right: 30),
+                              margin: EdgeInsets.only(left: 20,right: 20),
                               height:40,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.all(Radius.circular(12),
@@ -185,9 +214,9 @@ class _FinalPageState extends State<FinalPage> {
                                   color: Colors.blue.withOpacity(0.4)
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(6.0),
                                 child: Text(
-                                  "বর্গফল  ${(mul1)}= $index5",
+                                  "বর্গফল  ${(mul1 )} * ${(mul1)} = ${index5}",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,
@@ -201,7 +230,7 @@ class _FinalPageState extends State<FinalPage> {
                                 multiplication();
                               },
                               child: Icon(
-                                Icons.description,
+                                Icons.disabled_visible,
                                 color: Colors.white,
                                 size: 22,
                               ))
