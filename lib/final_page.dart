@@ -48,7 +48,14 @@ class _FinalPageState extends State<FinalPage> {
                 ),
 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+
+                    ElevatedButton(onPressed: (){},
+                        child: Icon(Icons.account_balance,
+                        color: Colors.white,
+                          size: 22,
+                        ))
 
                   ],
                 )
